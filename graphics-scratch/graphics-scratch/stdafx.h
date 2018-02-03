@@ -9,7 +9,12 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <stdlib.h>
+#include <memory>
+#include <iostream>
 
 
-
-// TODO: reference additional headers your program requires here
+// Non-standard header files
+#include <GL\glew.h>
+#include <GLFW\glfw3.h>
+#include <glm\glm.hpp>
