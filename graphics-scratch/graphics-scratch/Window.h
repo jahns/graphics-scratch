@@ -1,5 +1,6 @@
 #pragma once
-#include "IRenderLoop.h"
+#include "stdafx.h"
+#include "IRenderLoop.hpp"
 class Window
 {
 public:
@@ -7,13 +8,17 @@ public:
 	~Window();
 
 	bool isWindowValid();
-	void setLoopMethod(IRenderLoop* loop);
+	void setLoopClass(std::shared_ptr<IRenderLoop> loop);
 	void beginRender();
 
 private:
-	std::shared_ptr<GLFWwindow> m_Window;
+	struct DeleteWindow {
+		void operator()(GLFWwindow* ptr);
+	};
+
+	std::unique_ptr<GLFWwindow, DeleteWindow> m_Window;
 	unsigned int m_Width, m_Height;
 	bool m_IsValid;
-	std::unique_ptr<IRenderLoop> m_loop;
+	std::shared_ptr<IRenderLoop> m_loop;
 };
 

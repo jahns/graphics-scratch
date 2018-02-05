@@ -14,9 +14,8 @@ Window::Window(unsigned int width, unsigned height): m_Width(width), m_Height(he
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // We want OpenGL 3.3
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // We don't want the old OpenGL 
-
-	this->m_Window = std::shared_ptr<GLFWwindow>(glfwCreateWindow(this->m_Width, this->m_Height, "GScratch", NULL, NULL));
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // We don't want the old OpenGL
+	this->m_Window.reset(glfwCreateWindow(this->m_Width, this->m_Height, "GScratch", NULL, NULL));
 	if (this->m_Window.get() == NULL) {
 		std::cerr << "Failed to create window" << std::endl;
 		glfwTerminate();
@@ -48,7 +47,7 @@ void Window::beginRender() {
 
 	do {
 		// Draw nothing, see you in tutorial 2 !
-
+		this->m_loop->render();
 		// Swap buffers
 		glfwSwapBuffers(this->m_Window.get());
 		glfwPollEvents();
@@ -58,6 +57,10 @@ void Window::beginRender() {
 		   glfwWindowShouldClose(this->m_Window.get()) == 0);
 }
 
-void Window::setLoopMethod(IRenderLoop* loop) {
-	this->m_loop = std::unique_ptr<IRenderLoop>(loop);
+void Window::setLoopClass(std::shared_ptr<IRenderLoop> loop) {
+	this->m_loop = loop;
+}
+
+void Window::DeleteWindow::operator()(GLFWwindow *ptr) {
+	glfwDestroyWindow(ptr);
 }

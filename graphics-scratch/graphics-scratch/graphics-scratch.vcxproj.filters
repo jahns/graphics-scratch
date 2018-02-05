@@ -19,6 +19,24 @@
     <Filter Include="Source Files\Window">
       <UniqueIdentifier>{40d06720-e520-4026-81f0-1e4e131f5c63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Render">
+      <UniqueIdentifier>{61c670a5-54fd-4878-8730-94662e56dbd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render">
+      <UniqueIdentifier>{5c399229-5491-4bb5-9345-db2104555b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mesh">
+      <UniqueIdentifier>{846a0875-da7a-48b8-8fd0-629ccfc06434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mesh">
+      <UniqueIdentifier>{3b00a6db-938d-4202-b512-cd52d497005f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LinearAlg">
+      <UniqueIdentifier>{12bc90f4-c547-4777-8c24-458903c941f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LinearAlg">
+      <UniqueIdentifier>{2c8f0797-243d-41b7-9f78-7012eeb77deb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -33,7 +51,22 @@
     <ClInclude Include="Window.h">
       <Filter>Header Files\Window</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderLoop.h">
+    <ClInclude Include="IRenderLoop.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="GSRender.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +80,16 @@
     <ClCompile Include="Window.cpp">
       <Filter>Source Files\Window</Filter>
     </ClCompile>
-    <ClCompile Include="IRenderLoop.cpp">
+    <ClCompile Include="GSRender.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
